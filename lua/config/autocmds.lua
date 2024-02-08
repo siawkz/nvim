@@ -2,8 +2,22 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-vim.api.nvim_create_augroup("_lvim_user", {})
-vim.api.nvim_create_augroup("_general_settings", {})
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- format on save
+local fmtGroup = vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = fmtGroup,
+  pattern = { "*.lua", "*.go", "*.html", "*.rs", "*.json", "*.py" },
+  command = "lua vim.lsp.buf.format({ async = false })",
+})
+
+vim.api.nvim_create_augroup("_nvim_user", {})
 -- Autocommands
 vim.cmd([[
   " disable syntax highlighting in big files
@@ -29,8 +43,9 @@ vim.cmd([[
       autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
   augroup END
     ]])
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = "_lvim_user",
+  group = "_nvim_user",
   pattern = "*.md",
   desc = "beautify markdown",
   callback = function()
@@ -190,13 +205,5 @@ let b:current_syntax = "mkd"
 delcommand HtmlHiLink
 " vim: ts=8
 ]])
-  end,
-})
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = "_general_settings",
-  pattern = "*",
-  desc = "Highlight text on yank",
-  callback = function()
-    require("vim.highlight").on_yank({ higroup = "Search", timeout = 40 })
   end,
 })
