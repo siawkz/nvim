@@ -9,7 +9,7 @@ return {
   end,
   keys = {
     {
-      "<leader>v",
+      "<leader>uv",
       function()
         require("lsp_lines").toggle()
       end,

@@ -22,6 +22,12 @@
   brew install ripgrep fd
 ```
 
+- for ChatGPT
+```sh
+# set enviroment variable in /etc/environment or ~/.bash-profile
+OPENAI_API_KEY="your openapi api key"
+```
+
 ### Install
 ```sh
   # required

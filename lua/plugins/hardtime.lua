@@ -4,4 +4,5 @@ return {
   opts = {
     disable_mouse = false,
   },
+  event = "VimEnter",
 }
