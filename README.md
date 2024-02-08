@@ -11,7 +11,7 @@
 ```
 
 - Lazygit
-    
+
 ```sh
   brew install lazygit
 ```
@@ -23,12 +23,14 @@
 ```
 
 - for ChatGPT
+
 ```sh
 # set enviroment variable in /etc/environment or ~/.bash-profile
 OPENAI_API_KEY="your openapi api key"
 ```
 
-### Install
+### Clone and Install
+
 ```sh
   # required
   mv ~/.config/nvim{,.bak}
@@ -38,7 +40,7 @@ OPENAI_API_KEY="your openapi api key"
   mv ~/.local/state/nvim{,.bak}
   mv ~/.cache/nvim{,.bak}
 
-  git clone https://github.com/siawkz/nvim ~/.config/nvim 
+  git clone https://github.com/siawkz/nvim ~/.config/nvim
 ```
 
 ### Recommended Fonts
@@ -49,6 +51,6 @@ JetBrainsMono Nerd Font
 
 Note that,
 
-- **Leader** key set as <kbd>Space</kbd>
+- **Leader** key set as `Space`
 
 Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command

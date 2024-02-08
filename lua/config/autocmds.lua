@@ -17,7 +17,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = "lua vim.lsp.buf.format({ async = false })",
 })
 
-vim.api.nvim_create_augroup("_nvim_user", {})
+-- rainbow_csv when it is txt
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.txt",
+  command = "set filetype=tsv",
+})
+
 -- Autocommands
 vim.cmd([[
   " disable syntax highlighting in big files
