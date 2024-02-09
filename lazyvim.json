@@ -1,13 +1,8 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
-    "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.symbols-outline",
     "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.util.project",
-    "plugins.extras.ai.chatgpt",
-    "plugins.extras.ai.copilot"
+    "lazyvim.plugins.extras.util.project"
   ],
   "news": {
     "NEWS.md": "2123"
