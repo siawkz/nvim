@@ -75,13 +75,15 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 
 ### Motion
 
-| Key                         | Mode | Action                  |
-| --------------------------- | :--: | ----------------------- |
-| <kbd>f</kbd>                |  𝐍   | find next character     |
-| <kbd>F</kbd>                |  𝐍   | find previous character |
-| <kbd>s</kbd>                |  𝐍   | find character          |
-| <kbd>S</kbd>                |  𝐍   | find word               |
-| <kbd>Alt</kbd>+<kbd>a</kbd> |  𝐈   | select all              |
+| Key                                         | Mode | Action                  |
+| ------------------------------------------- | :--: | ----------------------- |
+| <kbd>f</kbd>                                |  𝐍   | find next character     |
+| <kbd>F</kbd>                                |  𝐍   | find previous character |
+| <kbd>s</kbd>                                |  𝐍   | find character          |
+| <kbd>S</kbd>                                |  𝐍   | find word               |
+| <kbd>Alt</kbd>+<kbd>a</kbd>                 |  𝐈   | select all              |
+| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>j</kbd> |  𝐍   | Add Multi Cursor down   |
+| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>k</kbd> |  𝐍   | Add Multi Cursor up     |
 
 ### LSP
 
