@@ -4,16 +4,10 @@
     "lazyvim.plugins.extras.coding.copilot",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.symbols-outline",
-    "lazyvim.plugins.extras.lang.python",
-    "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.project",
     "plugins.extras.ai.chatgpt",
-    "plugins.extras.ai.copilot",
-    "plugins.extras.diagnostics.semgrep",
-    "plugins.extras.lang.perl",
-    "plugins.extras.lang.python-custom",
-    "plugins.extras.lang.shell"
+    "plugins.extras.ai.copilot"
   ],
   "news": {
     "NEWS.md": "2123"

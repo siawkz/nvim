@@ -2,7 +2,7 @@ return {
   {
     -- Disable flash
     "folke/flash.nvim",
-    enable = false,
+    enabled = false,
   },
   {
     "phaazon/hop.nvim",
