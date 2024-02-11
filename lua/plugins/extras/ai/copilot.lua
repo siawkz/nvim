@@ -51,8 +51,8 @@ return {
     "folke/which-key.nvim",
     opts = {
       defaults = {
-        ["<leader>h"] = { name = "+AI" },
-        ["<leader>ha"] = { name = "+Github Copilot" },
+        ["<leader>h"] = { name = "+ai assistant" },
+        ["<leader>ha"] = { name = "+github copilot" },
       },
     },
   },

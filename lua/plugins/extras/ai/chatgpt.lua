@@ -40,8 +40,8 @@ return {
     opts = {
       defaults = {
         mode = { "n", "v" },
-        ["<leader>h"] = { name = "+AI" },
-        ["<leader>hb"] = { name = "+ChatGPT" },
+        ["<leader>h"] = { name = "+ai assistant" },
+        ["<leader>hb"] = { name = "+chatgpt" },
       },
     },
   },

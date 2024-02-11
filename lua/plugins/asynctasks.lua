@@ -25,8 +25,8 @@ return {
     "folke/which-key.nvim",
     opts = {
       defaults = {
-        ["<leader>m"] = { name = "+Make" },
-        ["<leader>r"] = { name = "+Run" },
+        ["<leader>m"] = { name = "+make" },
+        ["<leader>r"] = { name = "+run" },
       },
     },
   },
