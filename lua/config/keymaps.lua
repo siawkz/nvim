@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/utils/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.del("n", "<leader>L")
+
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "s", ":HopChar2MW<cr>", opts)
 vim.api.nvim_set_keymap("n", "S", ":HopWordMW<cr>", opts)
