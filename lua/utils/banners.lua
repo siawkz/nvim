@@ -360,7 +360,13 @@ M.dashboard = function()
     },
   }
 
-  return headers[math.random(1, #headers)]
+  -- Add 3 more lines after the banners
+  local selectedHeader = headers[math.random(1, #headers)]
+  for _ = 1, 3 do
+    selectedHeader[#selectedHeader + 1] = ""
+  end
+
+  return selectedHeader
 end
 
 return M
