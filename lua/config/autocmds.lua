@@ -48,3 +48,18 @@ vim.cmd([[
       autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
   augroup END
     ]])
+
+vim.opt.updatetime = 200
+
+vim.api.nvim_create_autocmd({
+  "WinResized",
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+  "BufModifiedSet",
+}, {
+  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+  callback = function()
+    require("barbecue.ui").update()
+  end,
+})
