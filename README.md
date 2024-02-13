@@ -25,8 +25,7 @@
 - for Perl
 
 ```sh
-  cpanm install Perl:Tidy
-  cpanm install App::perlimports
+  cpan install Perl:Tidy
 
 ```
 
