@@ -22,6 +22,14 @@
   brew install ripgrep fd
 ```
 
+- for Perl
+
+```sh
+  cpanm install Perl:Tidy
+  cpanm install App::perlimports
+
+```
+
 - for ChatGPT
 
 ```sh

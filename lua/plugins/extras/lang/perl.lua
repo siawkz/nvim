@@ -7,7 +7,7 @@ return {
         "williamboman/mason.nvim",
         opts = function(_, opts)
           opts.ensure_installed = opts.ensure_installed or {}
-          vim.list_extend(opts.ensure_installed, { "perlnavigator" })
+          vim.list_extend(opts.ensure_installed, { "perlnavigator", "perl-debug-adapter" })
         end,
       },
     },
