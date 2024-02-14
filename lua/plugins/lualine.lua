@@ -7,6 +7,15 @@ return {
       ls_active = "󰒍 ",
     }
 
+    local colors = {
+      none = "NONE",
+      bg = "#0F0F0F",
+      yellow = "#e0af68",
+      green = "#9ece6a",
+      red = "#f7768e",
+      git = { change = "#6183bb", add = "#449dab", delete = "#f7768e", conflict = "#bb7a61" },
+    }
+
     local function clock()
       return kind_icons.clock .. os.date("%H:%M")
     end
@@ -108,6 +117,11 @@ return {
       "diff",
       source = diff_source,
       symbols = { added = "  ", modified = " ", removed = " " },
+      diff_color = {
+        added = { fg = colors.git.add },
+        modified = { fg = colors.git.change },
+        removed = { fg = colors.git.delete },
+      },
       color = {},
       cond = nil,
     })
@@ -132,6 +146,7 @@ return {
       color = function()
         local buf = vim.api.nvim_get_current_buf()
         local ts = vim.treesitter.highlighter.active[buf]
+        return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red }
       end,
       cond = conditions.hide_in_width,
     })
@@ -259,6 +274,7 @@ return {
         return chars[index]
       end,
       padding = 0,
+      color = { fg = colors.yellow, bg = colors.bg },
       cond = nil,
     })
   end,
