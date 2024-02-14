@@ -14,17 +14,23 @@ return {
         ft = "helm",
       },
     },
-    config = function()
-      require("lspconfig").helm_ls.setup({
-        settings = {
-          ["helm-ls"] = {
-            yamlls = {
-              path = "yaml-language-server",
+    opts = {
+      setup = {
+        helm_ls = function()
+          require("lspconfig").helm_ls.setup({
+            settings = {
+              ["helm-ls"] = {
+                yamlls = {
+                  path = "yaml-language-server",
+                },
+              },
             },
-          },
-        },
-      })
-      require("lspconfig").yamlls.setup({})
-    end,
+          })
+        end,
+        yamlls = function()
+          require("lspconfig").yamlls.setup({})
+        end,
+      },
+    }
   },
 }
