@@ -2,7 +2,7 @@ return {
   "s1n7ax/nvim-window-picker",
   version = "v2.*",
   config = function()
-    local palette = require("nightfox.palette").load("carbonfox")
+    local palette = require("nightfox.palette").load(vim.g.colors_name)
     require("window-picker").setup({
       autoselect_one = true,
       include_current = false,

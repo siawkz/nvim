@@ -3,7 +3,9 @@
 -- Add any additional keymaps here
 
 vim.keymap.del("n", "<leader>L")
-vim.keymap.del("n", "<leader>ub")
+vim.keymap.set("n", "<leader>ub", function()
+  require("utils.colorscheme").ToggleColorScheme()
+end, { desc = "Toggle Background" })
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "s", ":HopChar2MW<cr>", opts)

@@ -7,7 +7,7 @@ return {
       ls_active = "󰒍 ",
     }
 
-    local palette = require("nightfox.palette").load("carbonfox")
+    local palette = require("nightfox.palette").load(vim.g.colors_name)
 
     local colors = {
       none = "NONE",
