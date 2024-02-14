@@ -8,12 +8,4 @@ return {
       colorscheme = "carbonfox",
     },
   },
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    opts = {
-      theme = "carbonfox",
-    },
-  },
 }
