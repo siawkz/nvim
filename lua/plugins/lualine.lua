@@ -11,7 +11,7 @@ return {
 
     local colors = {
       none = "NONE",
-      bg = palette.bg1,
+      bg = palette.bg0,
       fg = palette.fg0,
       green = palette.green.base,
       red = palette.red.base,
