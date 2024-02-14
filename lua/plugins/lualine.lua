@@ -155,7 +155,7 @@ return {
       color = function()
         local buf = vim.api.nvim_get_current_buf()
         local ts = vim.treesitter.highlighter.active[buf]
-        return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red, bg = colors.bg }
+        return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red }
       end,
       cond = conditions.hide_in_width,
     })
@@ -245,7 +245,7 @@ return {
           return string.sub(only_lsp, 1, 5)
         end
       end,
-      color = { fg = colors.fg, bg = colors.bg },
+      color = { fg = colors.fg },
       cond = conditions.hide_in_width,
     })
     ins_right({
@@ -270,7 +270,7 @@ return {
         end
         return format_file_size(file)
       end,
-      color = { fg = colors.fg, bg = colors.bg },
+      color = { fg = colors.fg },
       cond = conditions.buffer_not_empty and conditions.hide_small,
     })
 
