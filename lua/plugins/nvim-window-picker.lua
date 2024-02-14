@@ -2,6 +2,7 @@ return {
   "s1n7ax/nvim-window-picker",
   version = "v2.*",
   config = function()
+    local palette = require("nightfox.palette").load("carbonfox")
     require("window-picker").setup({
       autoselect_one = true,
       include_current = false,
@@ -15,7 +16,8 @@ return {
           buftype = { "terminal" },
         },
       },
-      other_win_hl_color = "#e35e4f",
+      other_win_hl_color = palette.bg2,
+      current_win_hl_color = palette.bg3,
     })
   end,
   keys = {

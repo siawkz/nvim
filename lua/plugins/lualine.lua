@@ -7,13 +7,20 @@ return {
       ls_active = "󰒍 ",
     }
 
+    local palette = require("nightfox.palette").load("carbonfox")
+
     local colors = {
       none = "NONE",
-      bg = "#282c34",
-      yellow = "#e0af68",
-      green = "#9ece6a",
-      red = "#f7768e",
-      git = { change = "#6183bb", add = "#449dab", delete = "#f7768e", conflict = "#bb7a61" },
+      bg = palette.bg1,
+      fg = palette.fg0,
+      green = palette.green.base,
+      red = palette.red.base,
+      git = {
+        change = palette.yellow.base,
+        add = palette.green.base,
+        delete = palette.red.base,
+        conflict = palette.orange.base,
+      },
     }
 
     local function clock()
@@ -43,8 +50,6 @@ return {
       end
       return nil
     end
-
-    local _time = os.date("*t")
 
     -- Config
     opts.options = {
@@ -133,9 +138,13 @@ return {
       enabled = function()
         return testing() ~= nil
       end,
+      hl = {
+        fg = colors.fg,
+      },
       left_sep = " ",
       right_sep = {
         str = " |",
+        hl = { fg = colors.fg },
       },
     })
 
@@ -146,7 +155,7 @@ return {
       color = function()
         local buf = vim.api.nvim_get_current_buf()
         local ts = vim.treesitter.highlighter.active[buf]
-        return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red }
+        return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red, bg = colors.bg }
       end,
       cond = conditions.hide_in_width,
     })
@@ -171,7 +180,11 @@ return {
             local _added_client = client.name
             only_lsp = only_lsp .. _added_client
             _added_client = string.sub(client.name, 1, 7)
-            table.insert(buf_client_names, _added_client)
+            if client.name == "copilot" then
+              lsp_icon = " "
+            else
+              table.insert(buf_client_names, _added_client)
+            end
           end
         end
 
@@ -232,6 +245,7 @@ return {
           return string.sub(only_lsp, 1, 5)
         end
       end,
+      color = { fg = colors.fg, bg = colors.bg },
       cond = conditions.hide_in_width,
     })
     ins_right({
@@ -256,12 +270,14 @@ return {
         end
         return format_file_size(file)
       end,
+      color = { fg = colors.fg, bg = colors.bg },
       cond = conditions.buffer_not_empty and conditions.hide_small,
     })
 
     table.insert(opts.sections.lualine_y, {
       clock,
       cond = conditions.hide_small,
+      color = { fg = colors.fg, bg = colors.bg },
     })
 
     table.insert(opts.sections.lualine_z, {
@@ -274,7 +290,7 @@ return {
         return chars[index]
       end,
       padding = 0,
-      color = { fg = colors.yellow, bg = colors.bg },
+      color = { fg = colors.fg, bg = colors.bg },
       cond = nil,
     })
   end,
