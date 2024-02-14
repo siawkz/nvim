@@ -8,7 +8,6 @@ return {
   },
   config = function()
     require("barbecue").setup({
-      theme = "catppuccin",
       create_autocmd = false,
     })
   end,
