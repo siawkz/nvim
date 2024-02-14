@@ -9,14 +9,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- format on save
-local fmtGroup = vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = fmtGroup,
-  pattern = { "*.lua", "*.go", "*.html", "*.rs", "*.json", "*.py" },
-  command = "lua vim.lsp.buf.format({ async = false })",
-})
-
 -- rainbow_csv when it is txt
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.txt",
