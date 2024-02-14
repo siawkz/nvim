@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.del("n", "<leader>L")
+vim.keymap.del("n", "<leader>ub")
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "s", ":HopChar2MW<cr>", opts)

@@ -1,9 +1,11 @@
 return {
-  { "kartikp10/noctis.nvim", dependencies = { "rktjmp/lush.nvim" } },
+  {
+    "EdenEast/nightfox.nvim",
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "noctis",
+      colorscheme = "carbonfox",
     },
   },
   {
@@ -11,7 +13,7 @@ return {
     name = "barbecue",
     version = "*",
     opts = {
-      theme = "noctis",
+      theme = "carbonfox",
     },
   },
 }
