@@ -8,6 +8,8 @@ return {
   },
   {
     "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
     opts = {
       theme = "noctis",
     },
