@@ -54,6 +54,13 @@ OPENAI_API_KEY="your openapi api key"
 
 JetBrainsMono Nerd Font
 
+## Useful Commands
+
+| Command      | Description      |
+| ------------ | ---------------- |
+| :LazyExtras  | Open LazyExtras  |
+| :ProjectRoot | Set project root |
+
 ## Original Key-mappings
 
 Please refer to [LazyVim Keymaps](https://www.lazyvim.org/keymaps)
