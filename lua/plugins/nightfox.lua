@@ -4,10 +4,8 @@ return {
     opts = {
       palettes = {
         carbonfox = {
-          sel0 = "#555555",
-        },
-        dayfox = {
-          sel0 = "#a3b0b0",
+          sel0 = "#3F3F3F",
+          sel1 = "#696969",
         },
       },
     },
