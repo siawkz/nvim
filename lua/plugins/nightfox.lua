@@ -2,9 +2,12 @@ return {
   {
     "EdenEast/nightfox.nvim",
     opts = {
-      options = {
-        inverse = {
-          visual = true,
+      palettes = {
+        carbonfox = {
+          sel0 = "#555555",
+        },
+        dayfox = {
+          sel0 = "#a3b0b0",
         },
       },
     },
