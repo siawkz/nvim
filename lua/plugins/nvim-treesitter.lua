@@ -39,6 +39,7 @@ return {
       "rust",
       "scss",
       "solidity",
+      "svelte",
       "teal",
       "toml",
       "tsx",
