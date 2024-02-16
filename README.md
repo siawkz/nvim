@@ -22,6 +22,13 @@
   brew install ripgrep fd
 ```
 
+- for yanky.nvim
+
+```sh
+  # You may need to install this on MacOS if you encounter error
+  brew install sqlite
+```
+
 - for Perl
 
 ```sh

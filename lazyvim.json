@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.symbols-outline",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.project"
   ],
