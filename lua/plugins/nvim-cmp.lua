@@ -31,8 +31,11 @@ return {
           if cmp.visible() then
             if #cmp.get_entries() == 1 then
               cmp.confirm({ select = true })
+            elseif cmp.get_active_entry() then
+              cmp.select_next_item()
             else
               cmp.select_next_item()
+              cmp.select_prev_item()
             end
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
@@ -86,8 +89,11 @@ return {
               if cmp.visible() then
                 if #cmp.get_entries() == 1 then
                   cmp.confirm({ select = true })
+                elseif cmp.get_active_entry() then
+                  cmp.select_next_item()
                 else
                   cmp.select_next_item()
+                  cmp.select_prev_item()
                 end
               else
                 cmp.complete()
@@ -111,8 +117,11 @@ return {
               if cmp.visible() then
                 if #cmp.get_entries() == 1 then
                   cmp.confirm({ select = true })
+                elseif cmp.get_active_entry() then
+                  cmp.select_next_item()
                 else
                   cmp.select_next_item()
+                  cmp.select_prev_item()
                 end
               else
                 cmp.complete()
