@@ -17,7 +17,7 @@ return {
       "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-emoji",
     },
-    event = "VimEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     opts = function(_, opts)
       local cmp = require("cmp")
       local luasnip = require("luasnip")
@@ -29,11 +29,18 @@ return {
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            if #cmp.get_entries() == 1 then
+              cmp.confirm({ select = true })
+            else
+              cmp.select_next_item()
+            end
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
+            if #cmp.get_entries() == 1 then
+              cmp.confirm({ select = true })
+            end
           else
             fallback()
           end
@@ -47,6 +54,17 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<CR>"] = cmp.mapping({
+          i = function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            else
+              fallback()
+            end
+          end,
+          s = cmp.mapping.confirm({ select = true }),
+          c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        }),
       })
 
       opts.snippet = {
@@ -62,7 +80,24 @@ return {
 
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({
+          ["<Tab>"] = {
+            c = function(_)
+              if cmp.visible() then
+                if #cmp.get_entries() == 1 then
+                  cmp.confirm({ select = true })
+                else
+                  cmp.select_next_item()
+                end
+              else
+                cmp.complete()
+                if #cmp.get_entries() == 1 then
+                  cmp.confirm({ select = true })
+                end
+              end
+            end,
+          },
+        }),
         sources = {
           { name = "buffer" },
         },
@@ -70,7 +105,24 @@ return {
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({
+          ["<Tab>"] = {
+            c = function(_)
+              if cmp.visible() then
+                if #cmp.get_entries() == 1 then
+                  cmp.confirm({ select = true })
+                else
+                  cmp.select_next_item()
+                end
+              else
+                cmp.complete()
+                if #cmp.get_entries() == 1 then
+                  cmp.confirm({ select = true })
+                end
+              end
+            end,
+          },
+        }),
         sources = cmp.config.sources({
           { name = "path" },
         }, {
