@@ -12,6 +12,6 @@ return {
       require("package-info").setup()
     end,
     lazy = true,
-    event = { "BufReadPre", "BufNew" },
+    event = { "BufReadPre package.json", "BufNew package.json" },
   },
 }
