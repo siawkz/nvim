@@ -44,7 +44,7 @@
   "nui.nvim": { "branch": "main", "commit": "c3c7fd618dcb5a89e443a2e1033e7d11fdb0596b" },
   "nvim-autopairs": { "branch": "master", "commit": "2e8a10c5fc0dcaf8296a5f1a7077efcd37065cc8" },
   "nvim-bqf": { "branch": "main", "commit": "bdc2a4e5bb670b3c0e33ada9c0eec636d93a0748" },
-  "nvim-cheatsh": { "branch": "main", "commit": "294ecfe50983df270abdbc94cc520f131cabbcce" },
+  "nvim-cheatsh": { "branch": "main", "commit": "ffc8cc167531adfdf93bced648542c8dcbccab5d" },
   "nvim-cmp": { "branch": "main", "commit": "04e0ca376d6abdbfc8b52180f8ea236cbfddf782" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
   "nvim-cursorline": { "branch": "main", "commit": "804f0023692653b2b2368462d67d2a87056947f9" },
