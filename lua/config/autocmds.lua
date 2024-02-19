@@ -37,7 +37,7 @@ vim.cmd([[
 
   augroup BigFileDisable
       autocmd!
-      autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
+      autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 10 * 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
   augroup END
     ]])
 
