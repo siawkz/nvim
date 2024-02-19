@@ -1,7 +1,7 @@
 return {
   {
     "siawkz/nvim-cheatsh",
-    event = "VimEnter",
+    cmd = { "Cheat", "CheatList" },
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },

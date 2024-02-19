@@ -8,7 +8,6 @@ return {
       },
     })
   end,
-  event = "VimEnter",
   keys = {
     { "<leader>C", "<Cmd>Legendary<CR>", desc = "Open Legendary" },
   },
