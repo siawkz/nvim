@@ -103,6 +103,11 @@ end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    osc52_copy(vim.fn.getreg(vim.v.event.regname))
+    -- Check if clipboard is available
+    if vim.fn.has("clipboard") == 1 then
+      return
+    else
+      osc52_copy(vim.fn.getreg(vim.v.event.regname))
+    end
   end,
 })
