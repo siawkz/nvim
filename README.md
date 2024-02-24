@@ -29,12 +29,6 @@
   brew install sqlite
 ```
 
-- for Perl
-
-```sh
-  cpan install Perl:Tidy
-```
-
 - for ChatGPT
 
 ```sh
