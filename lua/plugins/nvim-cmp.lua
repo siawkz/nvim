@@ -34,8 +34,7 @@ return {
             elseif cmp.get_active_entry() then
               cmp.select_next_item()
             else
-              cmp.select_next_item()
-              cmp.select_prev_item()
+              cmp.select_next_item({ count = 0 })
             end
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
@@ -74,6 +73,10 @@ return {
         end,
       }
 
+      opts.experimental = {
+        ghost_text = false,
+      }
+
       table.insert(opts.sources, { name = "luasnip", max_item_count = 3 })
       table.insert(opts.sources, { name = "nvim_lua" })
       table.insert(opts.sources, { name = "treesitter" })
@@ -90,8 +93,7 @@ return {
                 elseif cmp.get_active_entry() then
                   cmp.select_next_item()
                 else
-                  cmp.select_next_item()
-                  cmp.select_prev_item()
+                  cmp.select_next_item({ count = 0 })
                 end
               else
                 cmp.complete()
@@ -118,8 +120,7 @@ return {
                 elseif cmp.get_active_entry() then
                   cmp.select_next_item()
                 else
-                  cmp.select_next_item()
-                  cmp.select_prev_item()
+                  cmp.select_next_item({ count = 0 })
                 end
               else
                 cmp.complete()
