@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.g.autoformat = false
+vim.g.root_spec = { ".root", "lsp", { ".git", "lua" }, "cwd" }
