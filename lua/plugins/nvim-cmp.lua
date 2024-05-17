@@ -1,11 +1,5 @@
 return {
   {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -13,14 +7,11 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-emoji",
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = function(_, opts)
       local cmp = require("cmp")
-      local luasnip = require("luasnip")
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -36,8 +27,6 @@ return {
             else
               cmp.select_next_item({ count = 0 })
             end
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
             if #cmp.get_entries() == 1 then
@@ -50,8 +39,6 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
           else
             fallback()
           end
@@ -67,17 +54,10 @@ return {
         }),
       })
 
-      opts.snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body) -- For `luasnip` users.
-        end,
-      }
-
       opts.experimental = {
         ghost_text = false,
       }
 
-      table.insert(opts.sources, { name = "luasnip", max_item_count = 3 })
       table.insert(opts.sources, { name = "nvim_lua" })
       table.insert(opts.sources, { name = "treesitter" })
       table.insert(opts.sources, { name = "emoji" })

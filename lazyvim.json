@@ -1,10 +1,9 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.util.project"
+
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "4578"
   },
   "version": 3
 }
