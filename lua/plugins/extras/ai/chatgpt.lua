@@ -38,10 +38,12 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        mode = { "n", "v" },
-        ["<leader>h"] = { name = "+ai assistant" },
-        ["<leader>hb"] = { name = "+chatgpt" },
+      spec = {
+        {
+          mode = { "n", "v" },
+          { "<leader>h", group = "ai assistant" },
+          { "<leader>hb", group = "chatgpt" },
+        },
       },
     },
   },

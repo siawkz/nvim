@@ -21,9 +21,12 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>m"] = { name = "+tasks" },
-        ["<leader>r"] = { name = "+run" },
+      spec = {
+        {
+          mode = { "n", "v" },
+          { "<leader>m", group = "tasks" },
+          { "<leader>r", group = "run" },
+        },
       },
     },
   },

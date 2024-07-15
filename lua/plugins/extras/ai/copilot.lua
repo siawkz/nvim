@@ -50,9 +50,12 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>h"] = { name = "+ai assistant" },
-        ["<leader>ha"] = { name = "+github copilot" },
+      spec = {
+        {
+          mode = { "n", "v" },
+          { "<leader>h", group = "ai assistant" },
+          { "<leader>ha", group = "github copilot" },
+        },
       },
     },
   },
