@@ -6,7 +6,7 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     keys = {
-      { "<leader>?", "<Cmd>CheatList<CR>", desc = "Cheat" },
+      { "<leader>H", "<Cmd>CheatList<CR>", desc = "Cheat" },
     },
   },
 }

@@ -41,10 +41,11 @@ return {
       },
     },
     keys = {
-      { "<leader>hae", "<Cmd>Copilot enable<CR>", desc = "Enable Copilot" },
-      { "<leader>had", "<Cmd>Copilot disable<CR>", desc = "Disable" },
-      { "<leader>hat", "<Cmd>Copilot suggestion<CR>", desc = "Toggle Suggestions" },
-      { "<leader>has", "<Cmd>Copilot status<CR>", desc = "Status" },
+      { "<leader>aca", "<Cmd>Copilot! attach<CR>", desc = "Force Attach" },
+      { "<leader>ace", "<Cmd>Copilot enable<CR>", desc = "Enable" },
+      { "<leader>acd", "<Cmd>Copilot disable<CR>", desc = "Disable" },
+      { "<leader>act", "<Cmd>Copilot suggestion<CR>", desc = "Toggle Suggestions" },
+      { "<leader>acs", "<Cmd>Copilot status<CR>", desc = "Status" },
     },
   },
   {
@@ -53,8 +54,8 @@ return {
       spec = {
         {
           mode = { "n", "v" },
-          { "<leader>h", group = "ai assistant" },
-          { "<leader>ha", group = "github copilot" },
+          { "<leader>a", group = "ai" },
+          { "<leader>ac", group = "copilot settings" },
         },
       },
     },
