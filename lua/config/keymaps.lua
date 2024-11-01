@@ -9,8 +9,8 @@ end, { desc = "Toggle Background" })
 
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap("i", "<C-a>", "<Esc>ggVG<Cr>", opts)
-vim.api.nvim_set_keymap("n", "<C-a>", "ggVG<Cr>", opts)
+vim.keymap.set("i", "<M-a>", "<Esc>ggVG<Cr>", opts)
+vim.keymap.set("n", "<M-a>", "ggVG<Cr>", opts)
 
 vim.keymap.set("n", "<leader>cpd", function()
   require("utils.peek").Peek("definition")
@@ -21,3 +21,18 @@ end, { desc = "Implementation" })
 vim.keymap.set("n", "<leader>cpt", function()
   require("utils.peek").Peek("typeDefinition")
 end, { desc = "Type Definition" })
+
+LazyVim.toggle.map(
+  "<leader>uv",
+  LazyVim.toggle.wrap({
+    name = "LSP Lines",
+    get = function()
+      return vim.diagnostic.config().virtual_lines
+    end,
+    set = function(state)
+      vim.diagnostic.config({
+        virtual_lines = state,
+      })
+    end,
+  })
+)
