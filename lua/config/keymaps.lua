@@ -21,18 +21,3 @@ end, { desc = "Implementation" })
 vim.keymap.set("n", "<leader>cpt", function()
   require("utils.peek").Peek("typeDefinition")
 end, { desc = "Type Definition" })
-
-LazyVim.toggle.map(
-  "<leader>uv",
-  LazyVim.toggle.wrap({
-    name = "LSP Lines",
-    get = function()
-      return vim.diagnostic.config().virtual_lines
-    end,
-    set = function(state)
-      vim.diagnostic.config({
-        virtual_lines = state,
-      })
-    end,
-  })
-)
