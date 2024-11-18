@@ -15,32 +15,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "set filetype=tsv",
 })
 
--- Autocommands
-vim.cmd([[
-  " disable syntax highlighting in big files
-  function! DisableSyntaxTreesitter()
-      echo("Big file, disabling syntax, treesitter and folding")
-      if exists(':TSBufDisable')
-          exec 'TSBufDisable autotag'
-          exec 'TSBufDisable highlight'
-      endif
-
-      set foldmethod=manual
-      syntax clear
-      syntax off
-      filetype off
-      set noundofile
-      set noswapfile
-      set noloadplugins
-      set lazyredraw
-  endfunction
-
-  augroup BigFileDisable
-      autocmd!
-      autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 10 * 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
-  augroup END
-    ]])
-
 vim.opt.updatetime = 200
 
 vim.api.nvim_create_autocmd({
