@@ -31,5 +31,22 @@ return {
         { section = "startup" },
       },
     }
+
+    vim.api.nvim_set_option_value("colorcolumn", "80", {})
+    Snacks.toggle({
+      name = "Color Column",
+      get = function()
+        return vim.api.nvim_get_option_value("colorcolumn", {}) == "80"
+      end,
+      set = function(state)
+        if state then
+          vim.api.nvim_set_option_value("colorcolumn", "80", {
+          })
+        else
+          vim.api.nvim_set_option_value("colorcolumn", "", {
+          })
+        end
+      end,
+    }):map("<leader>uz")
   end,
 }
