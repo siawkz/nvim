@@ -16,7 +16,7 @@
   brew install lazygit
 ```
 
-- for telescope.nvim
+- for fzf-lua
 
 ```sh
   brew install ripgrep fd

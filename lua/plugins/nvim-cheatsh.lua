@@ -3,7 +3,7 @@ return {
     "siawkz/nvim-cheatsh",
     cmd = { "Cheat", "CheatList" },
     dependencies = {
-      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
     },
     keys = {
       { "<leader>H", "<Cmd>CheatList<CR>", desc = "Cheat" },
