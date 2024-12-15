@@ -20,6 +20,10 @@
 
 ```sh
   brew install ripgrep fd
+  # MacOS
+  brew install fzf
+  # Ubuntu
+  sudo apt install fzf
 ```
 
 - for yanky.nvim
