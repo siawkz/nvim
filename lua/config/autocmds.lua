@@ -17,19 +17,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 vim.opt.updatetime = 200
 
-vim.api.nvim_create_autocmd({
-  "WinResized",
-  "BufWinEnter",
-  "CursorHold",
-  "InsertLeave",
-  "BufModifiedSet",
-}, {
-  group = vim.api.nvim_create_augroup("barbecue.updater", {}),
-  callback = function()
-    require("barbecue.ui").update()
-  end,
-})
-
 local N = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
 local function encode_base64(data)
