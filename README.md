@@ -33,13 +33,6 @@
   brew install sqlite
 ```
 
-- for ChatGPT
-
-```sh
-# set enviroment variable in /etc/environment or ~/.bash-profile
-OPENAI_API_KEY="your openapi api key"
-```
-
 ### Clone and Install
 
 ```sh
@@ -158,22 +151,6 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>d</kbd> |  𝐍   | Disable Copilot           |
 | <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Inline suggestion  |
 | <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>s</kbd> |  𝐍   | Check status              |
-
-### Plugin: ChatGPT
-
-| Key                                        | Mode | Action                |
-| ------------------------------------------ | :--: | --------------------- |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>e</kbd> | 𝐈 𝐍  | Edit with Instruction |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>g</kbd> | 𝐈 𝐍  | Grammar Correction    |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>t</kbd> | 𝐈 𝐍  | Translate             |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>k</kbd> | 𝐈 𝐍  | Keywords              |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>d</kbd> | 𝐈 𝐍  | Docstring             |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>a</kbd> | 𝐈 𝐍  | Add Tests             |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>o</kbd> | 𝐈 𝐍  | Optimize Code         |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>s</kbd> | 𝐈 𝐍  | Summarize             |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>f</kbd> | 𝐈 𝐍  | Fix Bugs              |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>x</kbd> | 𝐈 𝐍  | Explain Code          |
-| <kbd>Space</kbd>+<kbd>h</kbd>+<kbd>r</kbd> | 𝐈 𝐍  | Roxygen Edit          |
 
 ### Plugin: Diffview
 
