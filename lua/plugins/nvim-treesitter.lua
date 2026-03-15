@@ -24,6 +24,7 @@ return {
       "jsonc",
       "kotlin",
       "latex",
+      "log",
       "lua",
       "make",
       "markdown",
