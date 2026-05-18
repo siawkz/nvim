@@ -11,13 +11,19 @@ return {
       },
     },
     opts = {
-      setup = {
-        perlnavigator = function()
-          require("lspconfig").perlnavigator.setup({
-            root_dir = require("lspconfig.util").root_pattern(".root", ".git"),
-          })
-          return true
-        end,
+      servers = {
+        perlnavigator = {
+          root_dir = require("lspconfig.util").root_pattern(".root", ".git"),
+        },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        perl = { "perltidy" },
       },
     },
   },

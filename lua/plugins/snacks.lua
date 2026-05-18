@@ -39,14 +39,8 @@ return {
         return vim.api.nvim_get_option_value("colorcolumn", {}) == "80"
       end,
       set = function(state)
-        if state then
-          vim.api.nvim_set_option_value("colorcolumn", "80", {
-          })
-        else
-          vim.api.nvim_set_option_value("colorcolumn", "", {
-          })
-        end
+        vim.api.nvim_set_option_value("colorcolumn", state and "80" or "", {})
       end,
-    }):map("<leader>uz")
+    }):map("<leader>u|")
   end,
 }

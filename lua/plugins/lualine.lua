@@ -163,7 +163,7 @@ return {
     ins_right({
       function(msg)
         msg = msg or kind_icons.ls_inactive .. "LS Inactive"
-        local buf_clients = vim.lsp.get_active_clients()
+        local buf_clients = vim.lsp.get_clients()
         if next(buf_clients) == nil then
           if type(msg) == "boolean" or #msg == 0 then
             return kind_icons.ls_inactive .. "LS Inactive"
@@ -217,15 +217,18 @@ return {
 
         local function list_supported_linters(filetype)
           local registered_providers = list_registered_providers_names(filetype)
-          local providers_for_methods = vim.tbl_flatten(vim.tbl_map(function(m)
-            return registered_providers[m] or {}
-          end, {
-            require("null-ls").methods.DIAGNOSTICS,
-            require("null-ls").methods.DIAGNOSTICS_ON_OPEN,
-            require("null-ls").methods.DIAGNOSTICS_ON_SAVE,
-          }))
-
-          return providers_for_methods
+          local methods = require("null-ls").methods
+          return vim
+            .iter({
+              methods.DIAGNOSTICS,
+              methods.DIAGNOSTICS_ON_OPEN,
+              methods.DIAGNOSTICS_ON_SAVE,
+            })
+            :map(function(m)
+              return registered_providers[m] or {}
+            end)
+            :flatten()
+            :totable()
         end
 
         -- add linter

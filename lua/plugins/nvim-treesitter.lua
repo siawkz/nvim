@@ -13,7 +13,6 @@ return {
       "dockerfile",
       "go",
       "gomod",
-      "gomod",
       "graphql",
       "hcl",
       "html",

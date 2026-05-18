@@ -7,14 +7,13 @@ function M.ToggleColorScheme()
   else
     vim.cmd("colorscheme carbonfox")
   end
-  -- reload lualine
-  require("lazy.core.loader").reload(require("lazy.core.config").plugins["lualine.nvim"])
-  -- reload nvim-window-picker
-  require("lazy.core.loader").reload(require("lazy.core.config").plugins["nvim-window-picker"])
-  -- reload indent-blankline
-  require("lazy.core.loader").reload(require("lazy.core.config").plugins["indent-blankline.nvim"])
-  -- reload symbol-usage
-  require("lazy.core.loader").reload(require("lazy.core.config").plugins["symbol-usage.nvim"])
+  local loader = require("lazy.core.loader")
+  local plugins = require("lazy.core.config").plugins
+  for _, name in ipairs({ "lualine.nvim", "nvim-window-picker", "symbol-usage.nvim", "snacks.nvim" }) do
+    if plugins[name] then
+      loader.reload(plugins[name])
+    end
+  end
 end
 
 return M

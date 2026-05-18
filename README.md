@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-- Neovim >= v0.8.0
+- Neovim >= v0.11.2
 
 ```sh
   brew install neovim
@@ -26,11 +26,10 @@
   sudo apt install fzf
 ```
 
-- for yanky.nvim
+- for perl formatting (not in Mason)
 
 ```sh
-  # You may need to install this on MacOS if you encounter error
-  brew install sqlite
+  brew install perltidy
 ```
 
 ### Clone and Install
@@ -72,30 +71,13 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 
 ### UI
 
-| Key                                        | Mode | Action           |
-| ------------------------------------------ | :--: | ---------------- |
-| <kbd>Space</kbd>+<kbd>e</kbd>              |  𝐍   | Open file tree   |
-| <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>s</kbd> |  𝐍   | Open symbols     |
-| <kbd>Space</kbd>+<kbd>f</kbd>+<kbd>f</kbd> |  𝐍   | Open file finder |
-| <kbd>Space</kbd>+<kbd>u</kbd>+<kbd>r</kbd> |  𝐍   | Remove highlight |
-| <kbd>g</kbd>+<kbd>c</kbd>                  |  𝐍   | Toggle comment   |
-| <kbd>Space</kbd>+<kbd>f</kbd>+<kbd>p</kbd> |  𝐍   | Projects         |
-| <kbd>Ctrl</kbd>+<kbd>/</kbd>               | 𝐈 𝐍  | Open terminal    |
-| <kbd>Space</kbd>+<kbd>C</kbd>              |  𝐍   | Command Palette  |
-| <kbd>Space</kbd>+<kbd>u</kbd>+<kbd>v</kbd> |  𝐍   | Toogle LSP line  |
+| Key                                         | Mode | Action                     |
+| ------------------------------------------- | :--: | -------------------------- |
+| <kbd>Space</kbd>+<kbd>u</kbd>+<kbd>b</kbd>  |  𝐍   | Toggle carbonfox ↔ dayfox  |
+| <kbd>Space</kbd>+<kbd>u</kbd>+<kbd>\|</kbd> |  𝐍   | Toggle 80-col color column |
+| <kbd>Alt</kbd>+<kbd>a</kbd>                 | 𝐈 𝐍  | Select all                 |
 
-### Motion
-
-| Key                                         | Mode | Action                  |
-| ------------------------------------------- | :--: | ----------------------- |
-| <kbd>f</kbd>                                |  𝐍   | find next character     |
-| <kbd>F</kbd>                                |  𝐍   | find previous character |
-| <kbd>s</kbd>                                |  𝐍   | find character          |
-| <kbd>Alt</kbd>+<kbd>a</kbd>                 |  𝐈   | select all              |
-| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>j</kbd> |  𝐍   | Add Multi Cursor down   |
-| <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>k</kbd> |  𝐍   | Add Multi Cursor up     |
-
-### LSP
+### LSP / Peek
 
 | Key                                                     | Mode | Action               |
 | ------------------------------------------------------- | :--: | -------------------- |
@@ -103,58 +85,64 @@ Modes: 𝐍=normal 𝐕=visual 𝐒=select 𝐈=insert 𝐂=command
 | <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>p</kbd>+<kbd>i</kbd> |  𝐍   | Peek Implementation  |
 | <kbd>Space</kbd>+<kbd>c</kbd>+<kbd>p</kbd>+<kbd>t</kbd> |  𝐍   | Peek Type Definition |
 
-### Plugin: Bufferline
+### Bufferline
 
-| Key                                        | Mode | Action             |
-| ------------------------------------------ | :--: | ------------------ |
-| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>h</kbd> |  𝐍   | Close all to left  |
-| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>l</kbd> |  𝐍   | Close all to right |
-| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>s</kbd> |  𝐍   | Pick buffer        |
-| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>c</kbd> |  𝐍   | Close buffer       |
+Uses vim direction mnemonic: `h` = close in the h-direction (left), `l` = close in the l-direction (right). This overrides LazyVim's `bl` (which means "left" lexically there).
 
-### Plugin: WindowPicker
+| Key                                        | Mode | Action                      |
+| ------------------------------------------ | :--: | --------------------------- |
+| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>h</kbd> |  𝐍   | Delete buffers to the left  |
+| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>l</kbd> |  𝐍   | Delete buffers to the right |
+| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>s</kbd> |  𝐍   | Pick buffer                 |
+| <kbd>Space</kbd>+<kbd>b</kbd>+<kbd>c</kbd> |  𝐍   | Pick + close                |
+
+### WindowPicker
 
 | Key                                        | Mode | Action      |
 | ------------------------------------------ | :--: | ----------- |
 | <kbd>Space</kbd>+<kbd>w</kbd>+<kbd>p</kbd> |  𝐍   | Pick window |
-| <kbd>Space</kbd>+<kbd>w</kbd>+<kbd>s</kbd> |  𝐍   | Swap window |
+| <kbd>Space</kbd>+<kbd>w</kbd>+<kbd>x</kbd> |  𝐍   | Swap window |
 
-### Plugin: BetterEscape
+### Dropbar (winbar)
+
+| Key                           | Mode | Action                 |
+| ----------------------------- | :--: | ---------------------- |
+| <kbd>Space</kbd>+<kbd>;</kbd> |  𝐍   | Pick winbar symbol     |
+| <kbd>[</kbd>+<kbd>;</kbd>     |  𝐍   | Go to start of context |
+| <kbd>]</kbd>+<kbd>;</kbd>     |  𝐍   | Select next context    |
+
+### BetterEscape
 
 | Key           | Mode | Action |
 | ------------- | :--: | ------ |
 | <kbd>jk</kbd> |  𝐈   | Escape |
 | <kbd>jj</kbd> |  𝐈   | Escape |
 
-### Plugin: AsyncTasks
+### Copilot
 
-| Key                                        | Mode | Action        |
-| ------------------------------------------ | :--: | ------------- |
-| <kbd>Space</kbd>+<kbd>m</kbd>+<kbd>f</kbd> |  𝐍   | Build File    |
-| <kbd>Space</kbd>+<kbd>m</kbd>+<kbd>p</kbd> |  𝐍   | Build Project |
-| <kbd>Space</kbd>+<kbd>m</kbd>+<kbd>e</kbd> |  𝐍   | Edit Tasks    |
-| <kbd>Space</kbd>+<kbd>m</kbd>+<kbd>l</kbd> |  𝐍   | List Tasks    |
-| <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>f</kbd> |  𝐍   | Run File      |
-| <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>p</kbd> |  𝐍   | Run Project   |
+| Key                                                     | Mode | Action                    |
+| ------------------------------------------------------- | :--: | ------------------------- |
+| <kbd>Alt</kbd>+<kbd>p</kbd>                             |  𝐈   | Accept current suggestion |
+| <kbd>Alt</kbd>+<kbd>w</kbd>                             |  𝐈   | Accept word               |
+| <kbd>Alt</kbd>+<kbd>l</kbd>                             |  𝐈   | Accept line               |
+| <kbd>Alt</kbd>+<kbd>]</kbd>                             |  𝐈   | Next suggestion           |
+| <kbd>Alt</kbd>+<kbd>[</kbd>                             |  𝐈   | Previous suggestion       |
+| <kbd>Ctrl</kbd>+<kbd>]</kbd>                            |  𝐈   | Dismiss                   |
+| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>c</kbd>+<kbd>a</kbd> |  𝐍   | Force Attach              |
+| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>c</kbd>+<kbd>e</kbd> |  𝐍   | Enable                    |
+| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>c</kbd>+<kbd>d</kbd> |  𝐍   | Disable                   |
+| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>c</kbd>+<kbd>s</kbd> |  𝐍   | Status                    |
+| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>c</kbd>+<kbd>m</kbd> |  𝐍   | Toggle Ghost ↔ Blink-only |
 
-### Plugin: Copilot
+### Cheat.sh
 
-| Key                                        | Mode | Action                    |
-| ------------------------------------------ | :--: | ------------------------- |
-| <kbd>Alt</kbd>+<kbd>]</kbd>                |  𝐈   | Next suggestion           |
-| <kbd>Alt</kbd>+<kbd>[</kbd>                |  𝐈   | Previous suggestion       |
-| <kbd>Alt</kbd>+<kbd>p</kbd>                |  𝐈   | Accept current suggestion |
-| <kbd>Alt</kbd>+<kbd>l</kbd>                |  𝐈   | Accept line suggestion    |
-| <kbd>Alt</kbd>+<kbd>w</kbd>                |  𝐈   | Accept word suggestion    |
-| <kbd>Ctrl</kbd>+<kbd>]</kbd>               |  𝐈   | Dismis                    |
-| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>e</kbd> |  𝐍   | Enable Copilot            |
-| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>d</kbd> |  𝐍   | Disable Copilot           |
-| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>t</kbd> |  𝐍   | Toggle Inline suggestion  |
-| <kbd>Space</kbd>+<kbd>a</kbd>+<kbd>s</kbd> |  𝐍   | Check status              |
+| Key                           | Mode | Action     |
+| ----------------------------- | :--: | ---------- |
+| <kbd>Space</kbd>+<kbd>H</kbd> |  𝐍   | Cheat list |
 
-### Plugin: Diffview
+### Diffview
 
 | Key                                        | Mode | Action        |
 | ------------------------------------------ | :--: | ------------- |
 | <kbd>Space</kbd>+<kbd>g</kbd>+<kbd>d</kbd> |  𝐍   | Open Diffview |
-| <kbd>Space</kbd>+<kbd>g</kbd>+<kbd>h</kbd> |  𝐍   | Focus History |
+| <kbd>Space</kbd>+<kbd>g</kbd>+<kbd>h</kbd> |  𝐍   | File history  |
