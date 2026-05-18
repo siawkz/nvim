@@ -16,16 +16,21 @@ vim.g.copilot_blink_mode = false
 -- Always sync to system clipboard so yanks land in "+ / "*
 vim.opt.clipboard = "unnamedplus"
 
--- When running over SSH, route the system clipboard through OSC 52 so yanks
--- on the remote box reach the local terminal (WezTerm on macOS).
+-- On every non-macOS box, route the system clipboard through OSC 52 so yanks
+-- reach the host terminal (e.g. WezTerm on macOS) without needing xclip /
+-- wl-copy on the remote. Covers:
+--   - plain `ssh` sessions (SSH_TTY/SSH_CLIENT set)
+--   - WezTerm `ssh_domains` / mux sessions (no SSH_TTY — shell is a child of
+--     wezterm-mux-server, not ssh)
+--   - any other remote terminal that speaks OSC 52
 --
--- WezTerm honors OSC 52 *writes* (copy) but explicitly ignores *reads* (paste)
--- for security. So we wire copy → OSC 52 and paste → unnamed register, which
--- means `"+p` / `"*p` will replay whatever was last yanked.
--- To paste real host clipboard content into Neovim, use WezTerm's own paste
--- shortcut (⌘V / Ctrl-Shift-V) — it sends the text as keystrokes, which Neovim
--- captures via bracketed paste regardless of clipboard provider.
-if os.getenv("SSH_CLIENT") ~= nil or os.getenv("SSH_TTY") ~= nil then
+-- WezTerm honors OSC 52 *writes* (copy) but explicitly ignores *reads* (paste).
+-- So copy → OSC 52, paste → unnamed register (`"+p` / `"*p` replay the last
+-- yank). To paste host clipboard content into Neovim, use WezTerm's ⌘V /
+-- Ctrl-Shift-V — it sends the text as keystrokes via bracketed paste.
+--
+-- Local macOS keeps the default `pbcopy`/`pbpaste` provider.
+if vim.fn.has("macunix") == 0 then
   local osc52 = require("vim.ui.clipboard.osc52")
   local function register_paste(_)
     return function()
